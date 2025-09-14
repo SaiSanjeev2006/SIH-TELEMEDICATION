@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+    <div id="main-container" class="text-center bg-white p-12 rounded-xl shadow-lg max-w-md w-full transition-opacity duration-500 ease-in-out">
+        <div id="role-selection">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">Welcome!</h1>
+            <p class="text-gray-600 mb-8">Please select your role to continue.</p>
+            <div class="space-y-4">
+                <button id="patient-login-btn" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105 duration-300 ease-in-out">
+                    Login as Patient
+                </button>
+                <button id="doctor-login-btn" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105 duration-300 ease-in-out">
+                    Login as Doctor
+                </button>
+            </div>
+        </div>
+
+        <div id="patient-login-form" class="hidden">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Patient Login</h2>
+            <form class="space-y-6">
+                <div>
+                    <input type="email" placeholder="Email Address" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <input type="password" placeholder="Password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-lg shadow-md transition-transform transform hover:scale-105">Login</button>
+            </form>
+             <button id="patient-back-btn" class="mt-4 text-sm text-gray-600 hover:underline">Go Back</button>
+        </div>
+
+        <div id="doctor-login-form" class="hidden">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Doctor Login</h2>
+            <form class="space-y-6">
+                <div>
+                    <input type="email" placeholder="Email Address" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                </div>
+                <div>
+                    <input type="password" placeholder="Password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                </div>
+                <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg shadow-md transition-transform transform hover:scale-105">Login</button>
+            </form>
+            <button id="doctor-back-btn" class="mt-4 text-sm text-gray-600 hover:underline">Go Back</button>
+        </div>
+    </div>
+
+    <script>
+        // Get all the elements we need from the HTML
+        const roleSelection = document.getElementById('role-selection');
+        const patientLoginForm = document.getElementById('patient-login-form');
+        const doctorLoginForm = document.getElementById('doctor-login-form');
+
+        const patientLoginBtn = document.getElementById('patient-login-btn');
+        const doctorLoginBtn = document.getElementById('doctor-login-btn');
+
+        const patientBackBtn = document.getElementById('patient-back-btn');
+        const doctorBackBtn = document.getElementById('doctor-back-btn');
+
+        // --- Event Listeners ---
+
+        // When "Login as Patient" is clicked
+        patientLoginBtn.addEventListener('click', () => {
+            roleSelection.classList.add('hidden'); // Hide the role selection
+            patientLoginForm.classList.remove('hidden'); // Show the patient form
+        });
+
+        // When "Login as Doctor" is clicked
+        doctorLoginBtn.addEventListener('click', () => {
+            roleSelection.classList.add('hidden'); // Hide the role selection
+            doctorLoginForm.classList.remove('hidden'); // Show the doctor form
+        });
+
+        // When the "Go Back" button in the patient form is clicked
+        patientBackBtn.addEventListener('click', () => {
+            patientLoginForm.classList.add('hidden'); // Hide the patient form
+            roleSelection.classList.remove('hidden'); // Show the role selection
+        });
+
+        // When the "Go Back" button in the doctor form is clicked
+        doctorBackBtn.addEventListener('click', () => {
+            doctorLoginForm.classList.add('hidden'); // Hide the doctor form
+            roleSelection.classList.remove('hidden'); // Show the role selection
+        });
+    </script>
+
+</body>
+</html>
