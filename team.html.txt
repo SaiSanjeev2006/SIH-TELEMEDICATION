@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Hackathon Team</title>
+</head>
+<body>
+    <h1>Meet the Team</h1>
+    </body>
+</html>
